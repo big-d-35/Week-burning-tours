@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <script>
+        window.NREUM || (NREUM = {});
+        NREUM.info = {
+            "beacon": "bam.eu01.nr-data.net",
+            "errorBeacon": "bam.eu01.nr-data.net",
+            "licenseKey": "2c179c83ce",
+            "applicationID": "5312414",
+            "transactionName": "JhpeRQoXCQpWQh0MXgEQSB4RFgEDSw==",
+            "queueTime": 0,
+            "applicationTime": 682,
+            "agent": ""
+        }
+    </script>
+    <script>
+        (window.NREUM || (NREUM = {})).loader_config = {
+            licenseKey: "2c179c83ce",
+            applicationID: "5312414"
+        };
+        window.NREUM || (NREUM = {}), __nr_require = function(n, e, t) {
+            function r(t) {
+                if (!e[t]) {
+                    var i = e[t] = {
+                        exports: {}
+                    };
+                    n[t][0].call(i.exports, function(e) {
+                        var i = n[t][1][e];
+                        return r(i || e)
+                    }, i, i.exports)
+                }
+                return e[t].exports
+            }
+            if ("function" == typeof __nr_require) return __nr_require;
+            for (var i = 0; i < t.length; i++) r(t[i]);
+            return r
+        }({
+            1: [function(n, e, t) {
+                function r() {}
+
+                function i(n, e, t) {
+                    return function() {
+                        return o(n, [u.now()].concat(f(arguments)), e ? null : this, t), e ? void 0 : this
+                    }
+                }
+                var o = n("handle"),
+                    a = n(4),
+                    f = n(5),
+                    c = n("ee").get("tracer"),
+                    u = n("loader"),
+                    s = NREUM;
+                "undefined" == typeof window.newrelic && (newrelic = s);
+                var p = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+                    d = "api-",
+                    l = d + "ixn-";
+                a(p, function(n, e) {
+                    s[e] = i(d + e, !0, "api")
+                }), s.addPageAction = i(d + "addPageAction", !0), s.setCurrentRouteName = i(d + "routeName", !0), e.exports = newrelic, s.interaction = function() {
+                    return (new r).get()
+                };
+                var m = r.prototype = {
+                    createTracer: function(n, e) {
+                        var t = {},
+                            r = this,
+                            i = "function" == typeof e;
+                        return o(l + "tracer", [u.now(), n, t], r),
+                            function() {
+                                if (c.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], t), i) try {
+                                    return e.apply(this, arguments)
+                                } catch (n) {
+                                    throw c.emit("fn-err", [arguments, this, n], t), n
+                                } finally {
+                                    c.emit("fn-end", [u.now()], t)
+                                }
+                            }
+                    }
+                };
+                a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function(n, e) {
+                    m[e] = i(l + e)
+                }), newrelic.noticeError = function(n, e) {
+                    "string" == typeof n && (n = new Error(n)), o("err", [n, u.now(), !1, e])
+                }
+            }, {}],
+            2: [function(n, e, t) {
+                function r(n, e) {
+                    var t = n.getEntries();
+                    t.forEach(function(n) {
+                        "first-paint" === n.name ? a("timing", ["fp", Math.floor(n.startTime)]) : "first-contentful-paint" === n.name && a("timing", ["fcp", Math.floor(n.startTime)])
+                    })
+                }
+
+                function i(n) {
+                    if (n instanceof c && !s) {
+                        var e, t = Math.round(n.timeStamp);
+                        e = t > 1e12 ? Date.now() - t : f.now() - t, s = !0, a("timing", ["fi", t, {
+                            type: n.type,
+                            fid: e
+                        }])
+                    }
+                }
+                if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+                    var o, a = n("handle"),
+                        f = n("loader"),
+                        c = NREUM.o.EV;
+                    if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+                        o = new PerformanceObserver(r);
+                        try {
+                            o.observe({
+                                entryTypes: ["paint"]
+                            })
+                        } catch (u) {}
+                    }
+                    if ("addEventListener" in document) {
+                        var s = !1,
+                            p = ["click", "keydown", "mousedown", "pointerdown", "touchstart"];
+                        p.forEach(function(n) {
+                            document.addEventListener(n, i, !1)
+                        })
+                    }
+                }
+            }, {}],
+            3: [function(n, e, t) {
+                function r(n, e) {
+                    if (!i) return !1;
+                    if (n !== i) return !1;
+                    if (!e) return !0;
+                    if (!o) return !1;
+                    for (var t = o.split("."), r = e.split("."), a = 0; a < r.length; a++)
+                        if (r[a] !== t[a]) return !1;
+                    return !0
+                }
+                var i = null,
+                    o = null,
+                    a = /Version\/(\S+)\s+Safari/;
+                if (navigator.userAgent) {
+                    var f = navigator.userAgent,
+                        c = f.match(a);
+                    c && f.indexOf("Chrome") === -1 && f.indexOf("Chromium") === -1 && (i = "Safari", o = c[1])
+                }
+                e.exports = {
+                    agent: i,
+                    version: o,
+                    match: r
+                }
+            }, {}],
+            4: [function(n, e, t) {
+                function r(n, e) {
+                    var t = [],
+                        r = "",
+                        o = 0;
+                    for (r in n) i.call(n, r) && (t[o] = e(r, n[r]), o += 1);
+                    return t
+                }
+                var i = Object.prototype.hasOwnProperty;
+                e.exports = r
+            }, {}],
+            5: [function(n, e, t) {
+                function r(n, e, t) {
+                    e || (e = 0), "undefined" == typeof t && (t = n ? n.length : 0);
+                    for (var r = -1, i = t - e || 0, o = Array(i < 0 ? 0 : i); ++r < i;) o[r] = n[e + r];
+                    return o
+                }
+                e.exports = r
+            }, {}],
+            6: [function(n, e, t) {
+                e.exports = {
+                    exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+                }
+            }, {}],
+            ee: [function(n, e, t) {
+                function r() {}
+
+                function i(n) {
+                    function e(n) {
+                        return n && n instanceof r ? n : n ? c(n, f, o) : o()
+                    }
+
+                    function t(t, r, i, o) {
+                        if (!d.aborted || o) {
+                            n && n(t, r, i);
+                            for (var a = e(i), f = v(t), c = f.length, u = 0; u < c; u++) f[u].apply(a, r);
+                            var p = s[y[t]];
+                            return p && p.push([b, t, r, a]), a
+                        }
+                    }
+
+                    function l(n, e) {
+                        h[n] = v(n).concat(e)
+                    }
+
+                    function m(n, e) {
+                        var t = h[n];
+                        if (t)
+                            for (var r = 0; r < t.length; r++) t[r] === e && t.splice(r, 1)
+                    }
+
+                    function v(n) {
+                        return h[n] || []
+                    }
+
+                    function g(n) {
+                        return p[n] = p[n] || i(t)
+                    }
+
+                    function w(n, e) {
+                        u(n, function(n, t) {
+                            e = e || "feature", y[t] = e, e in s || (s[e] = [])
+                        })
+                    }
+                    var h = {},
+                        y = {},
+                        b = {
+                            on: l,
+                            addEventListener: l,
+                            removeEventListener: m,
+                            emit: t,
+                            get: g,
+                            listeners: v,
+                            context: e,
+                            buffer: w,
+                            abort: a,
+                            aborted: !1
+                        };
+                    return b
+                }
+
+                function o() {
+                    return new r
+                }
+
+                function a() {
+                    (s.api || s.feature) && (d.aborted = !0, s = d.backlog = {})
+                }
+                var f = "nr@context",
+                    c = n("gos"),
+                    u = n(4),
+                    s = {},
+                    p = {},
+                    d = e.exports = i();
+                d.backlog = s
+            }, {}],
+            gos: [function(n, e, t) {
+                function r(n, e, t) {
+                    if (i.call(n, e)) return n[e];
+                    var r = t();
+                    if (Object.defineProperty && Object.keys) try {
+                        return Object.defineProperty(n, e, {
+                            value: r,
+                            writable: !0,
+                            enumerable: !1
+                        }), r
+                    } catch (o) {}
+                    return n[e] = r, r
+                }
+                var i = Object.prototype.hasOwnProperty;
+                e.exports = r
+            }, {}],
+            handle: [function(n, e, t) {
+                function r(n, e, t, r) {
+                    i.buffer([n], r), i.emit(n, e, t)
+                }
+                var i = n("ee").get("handle");
+                e.exports = r, r.ee = i
+            }, {}],
+            id: [function(n, e, t) {
+                function r(n) {
+                    var e = typeof n;
+                    return !n || "object" !== e && "function" !== e ? -1 : n === window ? 0 : a(n, o, function() {
+                        return i++
+                    })
+                }
+                var i = 1,
+                    o = "nr@id",
+                    a = n("gos");
+                e.exports = r
+            }, {}],
+            loader: [function(n, e, t) {
+                function r() {
+                    if (!x++) {
+                        var n = E.info = NREUM.info,
+                            e = l.getElementsByTagName("script")[0];
+                        if (setTimeout(s.abort, 3e4), !(n && n.licenseKey && n.applicationID && e)) return s.abort();
+                        u(y, function(e, t) {
+                            n[e] || (n[e] = t)
+                        }), c("mark", ["onload", a() + E.offset], null, "api");
+                        var t = l.createElement("script");
+                        t.src = "https://" + n.agent, e.parentNode.insertBefore(t, e)
+                    }
+                }
+
+                function i() {
+                    "complete" === l.readyState && o()
+                }
+
+                function o() {
+                    c("mark", ["domContent", a() + E.offset], null, "api")
+                }
+
+                function a() {
+                    return O.exists && performance.now ? Math.round(performance.now()) : (f = Math.max((new Date).getTime(), f)) - E.offset
+                }
+                var f = (new Date).getTime(),
+                    c = n("handle"),
+                    u = n(4),
+                    s = n("ee"),
+                    p = n(3),
+                    d = window,
+                    l = d.document,
+                    m = "addEventListener",
+                    v = "attachEvent",
+                    g = d.XMLHttpRequest,
+                    w = g && g.prototype;
+                NREUM.o = {
+                    ST: setTimeout,
+                    SI: d.setImmediate,
+                    CT: clearTimeout,
+                    XHR: g,
+                    REQ: d.Request,
+                    EV: d.Event,
+                    PR: d.Promise,
+                    MO: d.MutationObserver
+                };
+                var h = "" + location,
+                    y = {
+                        beacon: "bam.nr-data.net",
+                        errorBeacon: "bam.nr-data.net",
+                        agent: "js-agent.newrelic.com/nr-1153.min.js"
+                    },
+                    b = g && w && w[m] && !/CriOS/.test(navigator.userAgent),
+                    E = e.exports = {
+                        offset: f,
+                        now: a,
+                        origin: h,
+                        features: {},
+                        xhrWrappable: b,
+                        userAgent: p
+                    };
+                n(1), n(2), l[m] ? (l[m]("DOMContentLoaded", o, !1), d[m]("load", r, !1)) : (l[v]("onreadystatechange", i), d[v]("onload", r)), c("mark", ["firstbyte", f], null, "api");
+                var x = 0,
+                    O = n(6)
+            }, {}],
+            "wrap-function": [function(n, e, t) {
+                function r(n) {
+                    return !(n && n instanceof Function && n.apply && !n[a])
+                }
+                var i = n("ee"),
+                    o = n(5),
+                    a = "nr@original",
+                    f = Object.prototype.hasOwnProperty,
+                    c = !1;
+                e.exports = function(n, e) {
+                    function t(n, e, t, i) {
+                        function nrWrapper() {
+                            var r, a, f, c;
+                            try {
+                                a = this, r = o(arguments), f = "function" == typeof t ? t(r, a) : t || {}
+                            } catch (u) {
+                                d([u, "", [r, a, i], f])
+                            }
+                            s(e + "start", [r, a, i], f);
+                            try {
+                                return c = n.apply(a, r)
+                            } catch (p) {
+                                throw s(e + "err", [r, a, p], f), p
+                            } finally {
+                                s(e + "end", [r, a, c], f)
+                            }
+                        }
+                        return r(n) ? n : (e || (e = ""), nrWrapper[a] = n, p(n, nrWrapper), nrWrapper)
+                    }
+
+                    function u(n, e, i, o) {
+                        i || (i = "");
+                        var a, f, c, u = "-" === i.charAt(0);
+                        for (c = 0; c < e.length; c++) f = e[c], a = n[f], r(a) || (n[f] = t(a, u ? f + i : i, o, f))
+                    }
+
+                    function s(t, r, i) {
+                        if (!c || e) {
+                            var o = c;
+                            c = !0;
+                            try {
+                                n.emit(t, r, i, e)
+                            } catch (a) {
+                                d([a, t, r, i])
+                            }
+                            c = o
+                        }
+                    }
+
+                    function p(n, e) {
+                        if (Object.defineProperty && Object.keys) try {
+                            var t = Object.keys(n);
+                            return t.forEach(function(t) {
+                                Object.defineProperty(e, t, {
+                                    get: function() {
+                                        return n[t]
+                                    },
+                                    set: function(e) {
+                                        return n[t] = e, e
+                                    }
+                                })
+                            }), e
+                        } catch (r) {
+                            d([r])
+                        }
+                        for (var i in n) f.call(n, i) && (e[i] = n[i]);
+                        return e
+                    }
+
+                    function d(e) {
+                        try {
+                            n.emit("internal-error", e)
+                        } catch (t) {}
+                    }
+                    return n || (n = i), t.inPlace = u, t.flag = a, t
+                }
+            }, {}]
+        }, {}, ["loader"]);
+    </script><!-- A/B Tests -->
+    <!-- A/B Experiments Tests -->
+    <!-- End of A/B Experiments Tests -->
+    <!-- End of A/B Tests -->
+    <link as="script" href="/assets/application.5d57abb37cc700c6.js" rel="prefetch" />
+    <link href="https://www.googletagmanager.com/" rel="preconnect" />
+    <link href="https://www.googletagmanager.com/" rel="dns-prefetch" />
+    <link href="//cdn2.randewoo.ru/" rel="preconnect" />
+    <link href="//cdn2.randewoo.ru/" rel="dns-prefetch" />
+    <link href="https://gum.criteo.com" rel="preconnect" />
+    <link href="https://gum.criteo.com" rel="dns-prefetch" />
+    <link href="https://cdn.retailrocket.ru" rel="preconnect" />
+    <link href="https://cdn.retailrocket.ru" rel="dns-prefetch" />
+    <link href="https://rrstatic.retailrocket.net" rel="preconnect" />
+    <link href="https://rrstatic.retailrocket.net" rel="dns-prefetch" />
+    <link href="https://vk.com" rel="preconnect" />
+    <link href="https://vk.com" rel="dns-prefetch" />
+    <link href="https://widgets.mango-office.ru" rel="preconnect" />
+    <link href="https://widgets.mango-office.ru" rel="dns-prefetch" />
+    <link href="/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" type="image/png" />
+    <link href="/favicons/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" type="image/png" />
+    <link href="/favicons/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" type="image/png" />
+    <link href="/favicons/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" type="image/png" />
+    <link href="/favicons/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" type="image/png" />
+    <link href="/favicons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" type="image/png" />
+    <title>Randewoo.ru — интернет-магазин парфюмерии и косметики. Купить духи с доставкой в Москве</title>
+    <meta name="description" content="Самый большой выбор парфюмерии и косметики в России. Только оригинальная продукция! Оплата при получении и возврат. Накопительные скидки и ежедневные акции! Подарок к каждой покупке! Бесплатная доставка по Москве и Санкт-Петербургу при заказе от 3500 руб.">
+    <link rel="canonical" href="https://randewoo.ru/">
+    <meta property="og:title" content="Randewoo.ru - интернет-магазин оригинальной парфюмерии и косметики">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://randewoo.ru/">
+    <meta property="og:site_name" content="Randewoo.ru">
+    <meta property="og:image" content="https://randewoo.ru/assets/images/logo_og.14ce797b7df154d33e994f31383a198d.jpg">
+    <meta property="og:description" content="Оригинальный парфюм от известных брендов, изысканные ароматы духов для мужчин и женщин! Большой выбор ухаживающей косметики для лица и тела, профессиональные средства макияжа от популярных брендов с доставкой курьером и почтой. Привлекательные цены, регулярные акции и скидки на Randewoo.ru">
+    <meta name="google_analytics:list" content="homepage">
+    <meta name="google_analytics:global" content="homepage">
+    <meta name="headline" content="">
+    <meta name="robots" content="noyaca">
+    <meta content="#a59ff1" name="theme-color" />
+    <script>
+        //<![CDATA[
+        window.gon = {};
+        gon.csrf = "U\/RiKwJci6HwQm39cQLmQLjaZijJca5390hwX0nFj4zdYXwGDhLDR04l\/Q0n\/liDRxGwkps9\/wjMmWtvUQUfFw==";
+        gon.user = {
+            "is_authorized": false
+        };
+        gon.analytic_enabled = true;
+        gon.subscription_popup_enabled = false;
+        gon.subscription_popup_allowed = true;
+        gon.gtm = {};
+        gon.catalog_version = null;
+        //]]>
+    </script>
+    <script>
+        window.development = false;
+        window.analytics = {
+            "enabled": true,
+            "debug": false,
+            "options": {
+                "google": {
+                    "id": "UA-25261796-4"
+                },
+                "yandex": {
+                    "id": "10080304",
+                    "goal_id": "13434315"
+                },
+                "shared_yandex": {
+                    "id": "52966759"
+                }
+            }
+        };
+        window.is_manager = false;
+        if (window.location.hash == "#product__comments") {
+            window.location.hash = '#';
+            window.scrollToComments = true;
+        }
+    </script>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="Ur9DgHHp7HMHhUT/u6jMjymfnUwm4SEPaNpZPKzB6nbcKl2tfaeklbni1A/tVHJM1lRL9nStcHBTC0IMtAF67Q==" />
+    <link rel="stylesheet" media="screen" href="/assets/root.d5e1f5e3367a7541.css" />
+    <script>
+        window.cookies_prefs = {};
+        window.cookies_prefs.global_domain = '.randewoo.ru';
+        window.cookies_prefs.mode_expiry = 365
+    </script>
+    <link href="/reserve/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta content="width=1000" name="viewport" />
+    <meta content="1zXjfEnlis1K0fHsfdPjmm1fYzcFxFj0RCmNR90EZqM" name="google-site-verification" />
+    <script>
+        window.flash_ga = null;
+    </script>
+    <link href="https://api.mindbox.ru/assets/manifest.json" rel="manifest" />
+</head>
+
+<body class="p-Index-Index" data-page="index" id="app">
+    <div id="vk_api_transport"></div><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-TTJDCW" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+    <div class="page">
+        <header class="header" data-role="header" id="app-header">
+            <!-- noindex -->
+            <div class="s-headerLine">
+                <div class="s-headerLine__wrap">
+                    <div class="s-headerLine__advantages">
+                        <ul class="header-icons header-icons--active">
+                            <li class="header-icons__item"><i class="header-icons__icon header-icons__icon--warranty"></i><a class="header-icons__btn" href="#">Гарантия подлинности</a>
+                                <div class="header-icons__dropdown typography dropdown">
+                                    <p>Мы дорожим своей репутацией и предлагаем Вам эксклюзивную, 100% подлинную продукцию. Вы можете купить любой товар в нашем интернет-магазине и быть уверенными в его качестве. Мы работаем только с официальными дистрибьюторами и проверенными поставщиками.</p><a href="/info/certificates">Посмотреть декларации соответствия</a>
+                                </div>
+                            </li>
+                            <li class="header-icons__item"><i class="header-icons__icon header-icons__icon--gift"></i><a class="header-icons__btn" href="#">Подарки</a>
+                                <div class="header-icons__dropdown header-icons__dropdown__small typography dropdown">
+                                    <p>С каждым заказом вы получаете подарок в виде парфюмерных или косметических пробников.</p>
+                                </div>
+                            </li>
+                            <li class="header-icons__item"><i class="header-icons__icon header-icons__icon--percent"></i><a class="header-icons__btn" href="#">Скидки и акции</a>
+                                <div class="header-icons__dropdown typography dropdown">
+                                    <p>У нас действует накопительная система скидок, а также мы регулярно проводим акции и распродажи.</p><a href="/info/discounts">Подробнее о скидках</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="header-icons">
+                            <li class="header-icons__item"><i class="header-icons__icon"></i><a class="header-icons__btn" href="#">Бесплатная доставка</a>
+                                <div class="header-icons__dropdown typography dropdown">
+                                    <p>Доставка в Москве от 3500 р. &ndash; бесплатно.</p>
+                                    <p>Доставка в регионы России от 4500 р. &ndash; бесплатно через постаматы Pickpoint</p>
+                                    <ul>
+                                        <li>быстро (от 2 до 7 дней)</li>
+                                        <li>надежно (99% успешно доставленных заказов)</li>
+                                        <li>оплата наличными при получении или картой</li>
+                                        <li>бесплатно</li>
+                                    </ul><a href="/info/delivery">Подробно о доставке</a>
+                                </div>
+                            </li>
+                            <li class="header-icons__item"><i class="header-icons__icon header-icons__icon--purse"></i><a class="header-icons__btn" href="#">Оплата при получении</a>
+                                <div class="header-icons__dropdown typography dropdown">
+                                    <p>Оплатить заказ вы всегда сможете в момент доставки, будь то курьер, почта России или пункт самовывоза.</p>
+                                    <p>Но для желающих сэкономить всегда можно оплатить заказ на сайте картой или электронными деньгами.</p><a href="/info/payment">Подробно об оплате</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="header-icons">
+                            <li class="header-icons__item"><i class="diamond"></i><a class="header-icons__btn" href="#"> Самый большой выбор парфюмерии и косметики в России</a>
+                                <div class="header-icons__dropdown typography dropdown">
+                                    <p>За 11 лет работы нашего магазина нам удалось собрать самую большую коллекцию парфюмерии и косметики в России.</p>
+                                    <p>Сейчас в нашей коллекции свыше 180 000 товаров и более 5000 популярных брендов.</p>
+                                    <p>Каждый день каталог пополняется актуальными новинками парфюмерии и косметики.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="s-headerLine__auth" data-controller="user-menu" id="head-auth">
+                        <div class="s-headerAuth" data-role="headerAuth-template"><svg height="18" version="1.1" width="70">
+                                <circle cx="9" cy="9" fill="rgba(125, 125, 125, .15)" r="9"></circle>
+                                <line stroke="rgba(125, 125, 125, .15)" stroke-linecap="round" stroke-width="10" x1="28" x2="66" y1="9" y2="9"></line>
+                            </svg></div>
+                        <div class="s-headerAuth g-hidden" data-role="headerAuth-form"><i class="header-login__icon"></i><a class="header-login__btn" data-popover-click="#vue-auth-form">Вход</a>
+                            <auth-form></auth-form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /noindex -->
+            <div class="wrap wrap__header-margin container">
+                <div class="header-middle header__main"><a class="header__logo logo" href="/" title="Randewoo"></a><!-- noindex -->
+                    <vue-site-search class="header-search" product_count="180 000" value=""></vue-site-search>
+                    <div class="header__phone"><strong class="header__phoneWrapper"><a class="header__phoneLink" href="tel:+74953747874"><span class="header__phoneCode">+7 (495)</span>&nbsp;<span class="header__phoneNumber">374-78-74</span></a></strong></div>
+                    <vue-head-cart class="header__basket" is-bonus-enabled=""><svg height="60" version="1.1" width="180">
+                            <circle cx="30" cy="30" fill="rgba(125, 125, 125, .2)" r="18"></circle>
+                            <line fill="transparent" stroke="rgba(125, 125, 125, .2)" stroke-linecap="round" stroke-width="10" x1="60" x2="170" y1="19" y2="19"></line>
+                            <line fill="transparent" stroke="rgba(125, 125, 125, .2)" stroke-linecap="round" stroke-width="10" x1="60" x2="150" y1="40" y2="40"></line>
+                        </svg></vue-head-cart><!-- /noindex -->
+                </div><!-- noindex -->
+                <nav class="nav" data-role="main-menu-box">
+                    <ul class="nav__list" data-role="main-menu-list">
+                        <li class="nav__item  " data-id="4197" data-role="main-menu-item"><a class="nav__link"><span class="nav__text">Для женщин</span></a></li>
+                        <li class="nav__item  " data-id="4668" data-role="main-menu-item"><a class="nav__link"><span class="nav__text">Для мужчин</span></a></li>
+                        <li class="nav__item  " data-id="5267" data-role="main-menu-item"><a class="nav__link"><span class="nav__text">Для детей</span></a></li>
+                        <li class="nav__item  " data-id="4948" data-role="main-menu-item"><a class="nav__link"><span class="nav__text">Для дома</span></a></li>
+                        <li class="nav__item  " data-id="5064" data-role="main-menu-item"><a class="nav__link"><span class="nav__text">Подарки</span></a></li>
+                        <li class="nav__item  nav__item--highlighted" data-role="main-menu-item-link"><a class="nav__link" href="/products?category_ids=1019,1020"><span class="nav__text">AROMA BOX</span></a></li>
+                        <li class="nav__item_special_offers"><a class="nav__link" href="/special">Акции</a></li>
+                    </ul><a class="nav__btn" href="/sale" onClick="analytics.google.clickSalePopup()">SALE</a><!-- submenu -->
+                    <div class="s-subnav s-subnav--hidden" data-role="sub-menu-box"></div><!-- end of submenu -->
+                </nav>
+                <ul class="s-brandsBar" data-component="brands-bar">
+                    <li class="s-brandsBar__item"><span class="s-brandsBar__text">Выберите бренд:</span></li>
+                    <li class="s-brandsBar__item"><a class="s-brandsBar__link" href="/brands">ВСЕ</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="A"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/A" letter="A">A</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="B"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/B" letter="B">B</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="C"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/C" letter="C">C</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="D"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/D" letter="D">D</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="E"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/E" letter="E">E</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="F"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/F" letter="F">F</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="G"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/G" letter="G">G</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="H"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/H" letter="H">H</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="I"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/I" letter="I">I</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="J"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/J" letter="J">J</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="K"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/K" letter="K">K</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="L"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/L" letter="L">L</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="M"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/M" letter="M">M</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="N"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/N" letter="N">N</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="O"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/O" letter="O">O</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="P"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/P" letter="P">P</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="Q"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/Q" letter="Q">Q</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="R"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/R" letter="R">R</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="S"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/S" letter="S">S</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="T"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/T" letter="T">T</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="U"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/U" letter="U">U</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="V"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/V" letter="V">V</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="W"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/W" letter="W">W</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="X"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/X" letter="X">X</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="Y"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/Y" letter="Y">Y</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="Z"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/Z" letter="Z">Z</a></li>
+                    <li class="s-brandsBar__item" data-role="brands-bar-item" letter="0–9"><a class="s-brandsBar__link" data-role="brands-item-link" href="/brands/alphabet/0%E2%80%939" letter="0–9">0–9</a></li>
+                </ul><!-- /noindex -->
+            </div>
+        </header>
+        <div class="middle">
+            <main class="content">
+                <div class="wrap">
+                    <div class="b-mainBanner" data-role="main-banner" data-sex="woman"><a class="b-mainBanner__link" data-role="full-link"></a>
+                        <aside class="b-mainBanner__nav" data-role="banner-nav">
+                            <div class="b-mainBanner__btns" data-role="btns-wrap"><span class="b-mainBanner__btn b-mainBanner__btn--active b-mainBanner__btn--female" data-role="woman-btn">Женщинам</span><span class="b-mainBanner__btn b-mainBanner__btn--male" data-role="man-btn">Мужчинам</span></div>
+                            <ul class="b-mainBanner__list" data-role="brand-list">
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="https://randewoo.ru/products?category_ids=1019,1020">Aroma Box</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="https://randewoo.ru/products?category_ids=1020">Aroma Box</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="/brand/integrall?integrall_promo_main_slide">Integrall</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="https://randewoo.ru/brand/l-oreal?special_offer=99">L&#39;oreal</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="https://randewoo.ru/brand/paglieri_1876?special_offer=97">Paglieri</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="/brand/beautydrugs">Beautydrugs</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="/brand/hormeta">HORMETA</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="https://randewoo.ru/brand/hermes">Hermes</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="https://randewoo.ru/brand/creed#">Creed</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="https://randewoo.ru/brand/proraso">Proraso</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="woman"><a class="b-mainBanner__listLink" data-sex="woman" href="https://randewoo.ru/brand/schwarzkopf-professional?special_offer=66">Schwarzkopf Professional</a></li>
+                                <li class="b-mainBanner__listItem g-hidden" data-coloured="" data-sex="man"><a class="b-mainBanner__listLink" data-sex="man" href="https://randewoo.ru/brand/label-m">Label.m</a></li>
+                            </ul>
+                        </aside>
+                        <div class="b-mainBanner__slides"><img alt="Aroma Box" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/73/__master_banner_neon.jpg" /><img alt="Aroma Box" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/74/__master_banner_man.jpg" /><img alt="Integrall" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/21/index-big-1.jpg" /><img alt="L&#39;oreal" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/32/loreal_10.10__1_.jpg" /><img alt="Paglieri" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/66/pagieri__2_.jpg" /><img alt="Beautydrugs" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/63/beauty_drugs-slider.jpg" /><img alt="HORMETA" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/42/hormet1909__1_.jpg" /><img alt="Hermes" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/70/hermes.jpg" /><img alt="Creed" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/68/creed.jpg" /><img alt="Proraso" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/69/proraso.jpg" /><img alt="Schwarzkopf Professional" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="woman" src="//cdn2.randewoo.ru/uploads/slides/67/SCHWARZKOPF_10.10.jpg" /><img alt="Label.m" class="b-mainBanner__image g-hidden" data-role="main-banner-image" data-sex="man" src="//cdn2.randewoo.ru/uploads/slides/71/label.m.jpg" /></div>
+                    </div>
+                    <ul class="gifts-info gifts-info--banner">
+                        <li class="gifts-info__item"><a class="gifts-info__inner gifts-info__inner-wide" href="/unisex_parfum/Byredo_parfums_duhi"><img class="gifts-info__img" src="//cdn2.randewoo.ru/uploads/bnrs/158/520x620_byredo.jpg" /></a></li>
+                        <li class="gifts-info__item"><a class="gifts-info__inner gifts-info__inner-wide" href="/sale"><img class="gifts-info__img" src="//cdn2.randewoo.ru/uploads/bnrs/98/310x260_act.jpg" /></a></li>
+                        <li class="gifts-info__item"><a class="gifts-info__inner gifts-info__inner-wide" href="/products?category_ids=87,95,56,49"><img class="gifts-info__img" src="//cdn2.randewoo.ru/uploads/bnrs/99/IMAGE_2018-04-09_12_34_30__1_.jpg" /></a></li>
+                    </ul>
+                    <div class="logos-slider">
+                        <div class="logos-slider__inner">
+                            <div class="logos-slider__item"><a href="/brand/byredo?utm_source=block_brand"><img alt="Byredo" src="//cdn2.randewoo.ru/uploads/brands/510/bnw/byredo.png" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/christian-dior?utm_source=block_brand"><img alt="Christian Dior" src="//cdn2.randewoo.ru/uploads/brands/247/bnw/dior.png" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/dolce-gabbana?utm_source=block_brand"><img alt="Dolce &amp; Gabbana" src="//cdn2.randewoo.ru/uploads/brands/859/bnw/dolce_g.png" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/giorgio-armani?utm_source=block_brand"><img alt="Giorgio Armani" src="//cdn2.randewoo.ru/uploads/brands/849/bnw/giorgio_armani.png" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/hermes?utm_source=block_brand"><img alt="Hermes" src="//cdn2.randewoo.ru/uploads/brands/617/bnw/hermes.jpg" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/lacoste?utm_source=block_brand"><img alt="Lacoste" src="//cdn2.randewoo.ru/uploads/brands/39/bnw/lacoste.png" /></a></div>
+                            <div class="logos-slider__item"><a href="/brand/tom-ford?utm_source=block_brand"><img alt="Tom Ford" src="//cdn2.randewoo.ru/uploads/brands/210/bnw/tom_ford.jpg" /></a></div>
+                        </div><a class="logos-slider__link btn btn--info btn--small" href="/brands">Все бренды</a>
+                    </div>
+                    <section>
+                        <div data-retailrocket-markup-block="5937d7569872e572a88648c3"></div>
+                    </section>
+                    <section class="categories">
+                        <h2 class="h1 line-title"><span>Популярные категории</span></h2>
+                        <ul class="categories__list">
+                            <li class="categories__item"><a class="categories__img-box" href="/products?category_ids=1019,1020"><img alt="sample-packs" src="/assets/images/index_categories/sample_packs.15affd05cffe42b14c10d53136e1385e.png" /></a>
+                                <h4><a href="/products?category_ids=1019,1020">AROMA BOX</a></h4>
+                            </li>
+                            <li class="categories__item"><a class="categories__img-box" href="/category/parfyumeriya?price=0%2C3000"><img alt="Товары до 3000 рублей" src="/assets/images/index_categories/until.1c3d189ea11f44de5bf1364673ef5537.png" /></a>
+                                <h4><a href="/category/parfyumeriya?price=0%2C3000">Товары до 3000 рублей</a></h4>
+                            </li>
+                            <li class="categories__item"><a class="categories__img-box" href="/category/parfyumeriya?new_products_only=yes"><img alt="Последние поступления" src="/assets/images/index_categories/is_new.a34c9f4116a3307a62d5f31faf505b89.png" /></a>
+                                <h4><a href="/category/parfyumeriya?new_products_only=yes">Последние поступления</a></h4>
+                            </li>
+                            <li class="categories__item"><a class="categories__img-box" href="/bestsellers"><img alt="ТОП 30 товаров" src="/assets/images/index_categories/top.5beaabf80e4b53ce259fdeed530adb82.png" /></a>
+                                <h4><a href="/bestsellers">ТОП 30 товаров</a></h4>
+                            </li>
+                            <li class="categories__item"><a class="categories__img-box" href="/category/zhenskaya-vostochnaya?category_ids=97"><img alt="Восточная парфюмерия" src="/assets/images/index_categories/eastern.3ce29c5a9c3e369ee1bf04b996225e97.png" /></a>
+                                <h4><a href="/category/zhenskaya-vostochnaya?category_ids=97">Восточная парфюмерия</a></h4>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <div data-retailrocket-markup-block="5937d7965a6588b2acf89879"></div>
+                    </section>
+                    <section class="recent-purchases">
+                        <h2 class="h1 line-title"><span>Прямо сейчас купили</span></h2>
+                        <div class="carousel" data-carousel-size="6" data-role="carousel">
+                            <div class="carousel__inner" data-role="carousel_inner">
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="15256"><a class="carousel__img-box" href="/product/montale-intense-cafe"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/24412/s/1" /></a>
+                                        <h4><a href="/product/montale-intense-cafe">Montale Intense Cafe</a></h4><span>Montale</span><small>101000, г Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 23623,
+                                                "title": "Montale Intense Cafe",
+                                                "price": 5171.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 100мл",
+                                                "price_original": 5746.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "24412",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/montale-intense-cafe",
+                                                "full_title": "Montale Intense Cafe: парфюмерная вода 100мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "15256",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/24412/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/24412/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/24412/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="9336"><a class="carousel__img-box" href="/product/montale-vanille-absolu"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/9336/s/1" /></a>
+                                        <h4><a href="/product/montale-vanille-absolu">Montale Vanille Absolu</a></h4><span>Montale</span><small>101000, г Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 15058,
+                                                "title": "Montale Vanille Absolu",
+                                                "price": 240.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 2мл",
+                                                "price_original": 240.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "32355",
+                                                "is_evented": false,
+                                                "points": 5,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/montale-vanille-absolu",
+                                                "full_title": "Montale Vanille Absolu: парфюмерная вода 2мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "9336",
+                                                "images": {
+                                                    "count": 0,
+                                                    "s": "//cdn2.randewoo.ru/img/9336/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/9336/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/9336/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="76689"><a class="carousel__img-box" href="/product/montale-sweet-vanilla"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/76689/s/1" /></a>
+                                        <h4><a href="/product/montale-sweet-vanilla">Montale Sweet Vanilla</a></h4><span>Montale</span><small>101000, г Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 100938,
+                                                "title": "Montale Sweet Vanilla",
+                                                "price": 240.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 2мл",
+                                                "price_original": 240.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "103947",
+                                                "is_evented": false,
+                                                "points": 5,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/montale-sweet-vanilla",
+                                                "full_title": "Montale Sweet Vanilla: парфюмерная вода 2мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "76689",
+                                                "images": {
+                                                    "count": 0,
+                                                    "s": "//cdn2.randewoo.ru/img/76689/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/76689/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/76689/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="127430"><a class="carousel__img-box" href="/product/montale-day-dreams"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/127430/s/1" /></a>
+                                        <h4><a href="/product/montale-day-dreams">Montale Day Dreams</a></h4><span>Montale</span><small>101000, г Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 168103,
+                                                "title": "Montale Day Dreams",
+                                                "price": 240.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 2мл",
+                                                "price_original": 240.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "173838",
+                                                "is_evented": false,
+                                                "points": 5,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/montale-day-dreams",
+                                                "full_title": "Montale Day Dreams: парфюмерная вода 2мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "127430",
+                                                "images": {
+                                                    "count": 0,
+                                                    "s": "//cdn2.randewoo.ru/img/127430/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/127430/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/127430/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="60527"><a class="carousel__img-box" href="/product/montale-starry-nights"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/60527/s/1" /></a>
+                                        <h4><a href="/product/montale-starry-nights">Montale Starry Nights</a></h4><span>Montale</span><small>101000, г Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 72810,
+                                                "title": "Montale Starry Nights",
+                                                "price": 240.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 2мл",
+                                                "price_original": 240.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "75102",
+                                                "is_evented": false,
+                                                "points": 5,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/montale-starry-nights",
+                                                "full_title": "Montale Starry Nights: парфюмерная вода 2мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "60527",
+                                                "images": {
+                                                    "count": 0,
+                                                    "s": "//cdn2.randewoo.ru/img/60527/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/60527/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/60527/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="43821"><a class="carousel__img-box" href="/product/mancera-roses-vanille"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/55189/s/1" /></a>
+                                        <h4><a href="/product/mancera-roses-vanille">Mancera Roses Vanille</a></h4><span>Mancera</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 52000,
+                                                "title": "Mancera Roses Vanille",
+                                                "price": 5208.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 120мл",
+                                                "price_original": 5787.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "55189",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/mancera-roses-vanille",
+                                                "full_title": "Mancera Roses Vanille: парфюмерная вода 120мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "43821",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/55189/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/55189/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/55189/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Mancera",
+                                                "brand_href": "/brand/mancera",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="18923"><a class="carousel__img-box" href="/product/mancera-roses-chocolate"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/56342/s/1" /></a>
+                                        <h4><a href="/product/mancera-roses-chocolate">Mancera Roses &amp; Chocolate</a></h4><span>Mancera</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 28422,
+                                                "title": "Mancera Roses \u0026 Chocolate",
+                                                "price": 5740.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 120мл",
+                                                "price_original": 6378.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "56342",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/mancera-roses-chocolate",
+                                                "full_title": "Mancera Roses \u0026 Chocolate: парфюмерная вода 120мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "18923",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/56342/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/56342/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/56342/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Mancera",
+                                                "brand_href": "/brand/mancera",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="91194"><a class="carousel__img-box" href="/product/mancera-pink-prestigium"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/91195/s/1" /></a>
+                                        <h4><a href="/product/mancera-pink-prestigium">Mancera Pink Prestigium</a></h4><span>Mancera</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 88770,
+                                                "title": "Mancera Pink Prestigium",
+                                                "price": 6330.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 120мл",
+                                                "price_original": 7033.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "91195",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/mancera-pink-prestigium",
+                                                "full_title": "Mancera Pink Prestigium: парфюмерная вода 120мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "91194",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/91195/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/91195/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/91195/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Mancera",
+                                                "brand_href": "/brand/mancera",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="43770"><a class="carousel__img-box" href="/product/karl-lagerfeld-pour-homme"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/55237/s/1" /></a>
+                                        <h4><a href="/product/karl-lagerfeld-pour-homme">Karl Lagerfeld Pour Homme</a></h4><span>Karl Lagerfeld</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 51965,
+                                                "title": "Karl Lagerfeld Pour Homme",
+                                                "price": 2987.0,
+                                                "description": null,
+                                                "subtitle": "туалетная вода 100мл",
+                                                "price_original": 2987.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "55237",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/karl-lagerfeld-pour-homme",
+                                                "full_title": "Karl Lagerfeld Pour Homme: туалетная вода 100мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "43770",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/55237/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/55237/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/55237/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Karl Lagerfeld",
+                                                "brand_href": "/brand/karl-lagerfeld",
+                                                "default_category_title": "Люкс / Элитная"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="34337"><a class="carousel__img-box" href="/product/montale-soleil-de-capri"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/54197/s/1" /></a>
+                                        <h4><a href="/product/montale-soleil-de-capri">Montale Soleil de Capri</a></h4><span>Montale</span><small>141100, Московская обл, Щелковский р-н, г Щелково</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 44934,
+                                                "title": "Montale Soleil de Capri",
+                                                "price": 5087.0,
+                                                "description": null,
+                                                "subtitle": "парфюмерная вода 100мл",
+                                                "price_original": 5985.0,
+                                                "discount": 15.0,
+                                                "appearance": "list",
+                                                "sku": "54197",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/montale-soleil-de-capri",
+                                                "full_title": "Montale Soleil de Capri: парфюмерная вода 100мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "34337",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/54197/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/54197/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/54197/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Montale",
+                                                "brand_href": "/brand/montale",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="47330"><a class="carousel__img-box" href="/product/l-artisan-parfumeur-l-eau-de-l-artisan"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/49246/s/1" /></a>
+                                        <h4><a href="/product/l-artisan-parfumeur-l-eau-de-l-artisan">L&#39;Artisan Parfumeur L&#39;Eau De L&#39;Artisan</a></h4><span>L&#39;Artisan Parfumeur</span><small>603000, Нижегородская обл, г Нижний Новгород</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 54056,
+                                                "title": "L'Artisan Parfumeur L'Eau De L'Artisan",
+                                                "price": 7273.0,
+                                                "description": null,
+                                                "subtitle": "туалетная вода 100мл",
+                                                "price_original": 8081.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "49246",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/l-artisan-parfumeur-l-eau-de-l-artisan",
+                                                "full_title": "L'Artisan Parfumeur L'Eau De L'Artisan: туалетная вода 100мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "47330",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/49246/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/49246/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/49246/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "L'Artisan Parfumeur",
+                                                "brand_href": "/brand/l-artisan-parfumeur",
+                                                "default_category_title": "Винтажная"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="89451"><a class="carousel__img-box" href="/product/sprey-dlya-nog-osvezhayuschiy-aktivnogo-deystviya-deo-activ-fresh-150ml"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/89451/s/1" /></a>
+                                        <h4><a href="/product/sprey-dlya-nog-osvezhayuschiy-aktivnogo-deystviya-deo-activ-fresh-150ml">Спрей для ног Освежающий активного действия Deo-Activ Fresh 150мл</a></h4><span>Scholl</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 87064,
+                                                "title": "Спрей для ног Освежающий активного действия Deo-Activ Fresh 150мл",
+                                                "price": 345.0,
+                                                "description": "\u003cp\u003e\u003cstrong\u003eОт производителя:\u003c/strong\u003e\u003cbr /\u003eСпрей для ног Освежающий активного действия Deo-Activ Fresh марки Scholl подарит вашим ногам комфорт и свежесть на протяжении 24-х часов. Продукт хорошо справляется с ситуациями, когда вам нужно целый день ходить в обуви, которая, к тому же, не всегда бывает из натуральных материалов, что не позволяет коже дышать и может спровоцировать появление неприятного запаха и пота. Средство обладает лёгкой мелкозернистой текстурой, имеет отличный дозатор, удобно и обильно наносится, экономично расходуется, может использоваться для 3-х разных способов нанесения: на чистую и сухую кожу ног, на чистые носки, предварительно одетые на ноги, а также спрей можно распылять непосредственно внутрь обуви. При нанесении дезодоранта образуется интенсивный запах, который совсем скоро превращается в лёгкий, ненавязчивый и освежающий аромат.\u0026nbsp;\u003c/p\u003e\u003cp\u003eСредство устраняет неприятные запахи и уничтожает их источник, обладает мощным антибактериальным действием, регулирует процесс потоотделения и существенно уменьшает количество выделяемой кожей влаги, быстро впитывается и не оставляет следов. Основными активными компонентами формулы являются алоэ вера и витамин В5. Продукт был протестирован дерматологами.\u003cbr /\u003e\u0026nbsp;\u003cbr /\u003e\u003cstrong\u003eСпособ применения:\u003c/strong\u003e\u003cbr /\u003eРаспыляйте спрей с расстояния 10-15 см на чистую и сухую кожу ног.\u003cbr /\u003e\u0026nbsp;\u003c/p\u003e",
+                                                "subtitle": "",
+                                                "price_original": 345.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "89451",
+                                                "is_evented": false,
+                                                "points": 7,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/sprey-dlya-nog-osvezhayuschiy-aktivnogo-deystviya-deo-activ-fresh-150ml",
+                                                "full_title": "Спрей для ног Освежающий активного действия Deo-Activ Fresh 150мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "89451",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/89451/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/89451/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/89451/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": false,
+                                                "is_favorited": false,
+                                                "brand_title": "Scholl",
+                                                "brand_href": "/brand/sholl",
+                                                "default_category_title": "От пота и запаха"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="55677"><a class="carousel__img-box" href="/product/davidoff-cool-water-for-men"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/52391/s/1" /></a>
+                                        <h4><a href="/product/davidoff-cool-water-for-men">Davidoff Cool Water for men</a></h4><span>Davidoff</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 56469,
+                                                "title": "Davidoff Cool Water for men",
+                                                "price": 1428.0,
+                                                "description": null,
+                                                "subtitle": "туалетная вода 40мл",
+                                                "price_original": 1428.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "52391",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/davidoff-cool-water-for-men",
+                                                "full_title": "Davidoff Cool Water for men: туалетная вода 40мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "55677",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/52391/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/52391/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/52391/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Davidoff",
+                                                "brand_href": "/brand/davidoff",
+                                                "default_category_title": "Винтажная"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="604"><a class="carousel__img-box" href="/product/clive-christian-c-for-women"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/57239/s/1" /></a>
+                                        <h4><a href="/product/clive-christian-c-for-women">Clive Christian C for Women</a></h4><span>Clive Christian</span><small>г. Ессентуки</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 1016,
+                                                "title": "Clive Christian C for Women",
+                                                "price": 8248.0,
+                                                "description": null,
+                                                "subtitle": "духи 50мл тестер",
+                                                "price_original": 9164.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "57239",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/clive-christian-c-for-women",
+                                                "full_title": "Clive Christian C for Women: духи 50мл тестер",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "604",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/57239/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/57239/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/57239/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Clive Christian",
+                                                "brand_href": "/brand/clive-christian",
+                                                "default_category_title": "Селективная / Нишевая"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="54710"><a class="carousel__img-box" href="/product/chanel-les-exclusifs-de-chanel-no22"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/36532/s/1" /></a>
+                                        <h4><a href="/product/chanel-les-exclusifs-de-chanel-no22">Chanel Les Exclusifs de Chanel No22</a></h4><span>Chanel</span><small>г. Ессентуки</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 46786,
+                                                "title": "Chanel Les Exclusifs de Chanel No22",
+                                                "price": 23876.0,
+                                                "description": null,
+                                                "subtitle": "туалетная вода 200мл тестер",
+                                                "price_original": 26529.0,
+                                                "discount": 10.0,
+                                                "appearance": "list",
+                                                "sku": "36532",
+                                                "is_evented": false,
+                                                "points": 0,
+                                                "can_buy": true,
+                                                "is_discounted": true,
+                                                "href": "/product/chanel-les-exclusifs-de-chanel-no22",
+                                                "full_title": "Chanel Les Exclusifs de Chanel No22: туалетная вода 200мл тестер",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "54710",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/36532/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/36532/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/36532/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Chanel",
+                                                "brand_href": "/brand/chanel",
+                                                "default_category_title": "Винтажная"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="23843"><a class="carousel__img-box" href="/product/ohlazhdayuschiy-balzam-dlya-nog-myatnyy-fusskraft-mint"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/116857/s/1" /></a>
+                                        <h4><a href="/product/ohlazhdayuschiy-balzam-dlya-nog-myatnyy-fusskraft-mint">Охлаждающий бальзам для ног Мятный Fusskraft Mint</a></h4><span>Gehwol</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 113470,
+                                                "title": "Охлаждающий бальзам для ног Мятный Fusskraft Mint",
+                                                "price": 812.0,
+                                                "description": null,
+                                                "subtitle": "Бальзам 75мл",
+                                                "price_original": 812.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "116857",
+                                                "is_evented": false,
+                                                "points": 16,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/ohlazhdayuschiy-balzam-dlya-nog-myatnyy-fusskraft-mint",
+                                                "full_title": "Охлаждающий бальзам для ног Мятный Fusskraft Mint: Бальзам 75мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "23843",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/116857/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/116857/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/116857/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "Gehwol",
+                                                "brand_href": "/brand/gehwol",
+                                                "default_category_title": "Органическая косметика"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="186894"><a class="carousel__img-box" href="/product/shampun-uhod-dlya-okrashennyh-volos-studio-color-care-caring-line-350ml"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/186894/s/1" /></a>
+                                        <h4><a href="/product/shampun-uhod-dlya-okrashennyh-volos-studio-color-care-caring-line-350ml">Шампунь-уход для окрашенных волос Studio Caring Line Color Care 350мл</a></h4><span>Kapous Professional</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 180179,
+                                                "title": "Шампунь-уход для окрашенных волос Studio Caring Line Color Care 350мл",
+                                                "price": 230.0,
+                                                "description": "\u003cp\u003e\u003cstrong\u003eОт производителя: \u003c/strong\u003e\u003c/p\u003e\u003cp\u003eПрофессиональный шампунь для ухода за окрашенными волосами Studio Color Care Caring Line от компании Kapous Professional обеспечивает мягкое очищение, питание корней и защиту цвета волос на молекулярном уровне.\u003c/p\u003e\u003cp\u003eЕго формула содержит тщательно подобранные моющие ингредиенты растительного происхождения, которые помогают поддерживать естественный уровень pH и увлажняют волосы по всей длине. Молочные протеины восстанавливают поврежденную химическими красителями структуру волос. Витамин Е и биологически активные компоненты злаков помогают сохранить яркость и насыщенность полученного оттенка, способствуя удерживанию пигмента внутри структуры волоса. При регулярном использовании шампуня волосы становятся более гладкими, эластичными, послушными, приобретаютздоровый блеск и ухоженный вид.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eПрименение: \u003c/strong\u003e\u003c/p\u003e\u003cp\u003eНанесите небольшое количество шампуня Kapous Professional Studio Color Care Caring Line на влажные волосы. Вспеньте массирующими движениями, распределяя его по всей длине волос в течение 2-4 минут, затем смойте теплой водой. При необходимости повторите процедуру.\u003c/p\u003e",
+                                                "subtitle": "",
+                                                "price_original": 230.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "186894",
+                                                "is_evented": false,
+                                                "points": 5,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/shampun-uhod-dlya-okrashennyh-volos-studio-color-care-caring-line-350ml",
+                                                "full_title": "Шампунь-уход для окрашенных волос Studio Caring Line Color Care 350мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "186894",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/186894/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/186894/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/186894/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": false,
+                                                "is_favorited": false,
+                                                "brand_title": "Kapous Professional",
+                                                "brand_href": "/brand/kapous-professional",
+                                                "default_category_title": "Защита для волос"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="227409"><a class="carousel__img-box" href="/product/ekspress-maska-dlya-volos-fragrance-free-magic-keratin-2-12ml"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/227409/s/1" /></a>
+                                        <h4><a href="/product/ekspress-maska-dlya-volos-fragrance-free-magic-keratin-2-12ml">Экспресс-маска для волос Magic Keratin Fragrance Free 2*12мл</a></h4><span>Kapous Professional</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 218249,
+                                                "title": "Экспресс-маска для волос Magic Keratin Fragrance Free 2*12мл",
+                                                "price": 164.0,
+                                                "description": "\u003cp\u003e\u003cstrong\u003eОт производителя:\u003c/strong\u003e\u003cbr /\u003eИнтенсивное восстановление и уход за поврежденными волосами, придание им здорового блеска, защита от негативного влияния внешних факторов \u0026ndash; все это возможно благодаря применению экспресс-маски для волос от итальянского бренда Kapous Professional.\u003c/p\u003e\u003cp\u003eФормула Fragrance Free Magic Keratin содержит:\u003cbr /\u003e- экстракт красной водоросли \u0026ndash; увлажняет и успокаивает волосы, помогает защитить коллаген, стимулирует клеточный обмен;\u003cbr /\u003e- кератин \u0026ndash; активно защищает волосы, делает их более послушными и эластичными, способствует удалению перхоти, улучшает структуру волос, обладает регенерирующими качествами.\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eСпособ применения:\u003c/strong\u003e\u003cbr /\u003eСмешать содержимое двух ампул 1:1, до появления пены. Равномерно распределить средство по волосам. Дать волосам пропитаться 5-7 минут. Тщательно смыть.\u0026nbsp;\u003c/p\u003e\u003cp\u003e\u003cstrong\u003eСостав:\u003c/strong\u003e\u003cbr /\u003eЭкспресс-маска для волос Kapous Professional Fragrance Free Magic Keratin содержит: Propylene Glycol, Alcohol Denat, Myristyl Alcohol, Aqua (Water), Cetrimonium Chloride, Butylene Glycol, Hypnea Musciformis Extract.\u003cbr /\u003e\u0026nbsp;\u003c/p\u003e",
+                                                "subtitle": "",
+                                                "price_original": 164.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "227409",
+                                                "is_evented": false,
+                                                "points": 3,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/ekspress-maska-dlya-volos-fragrance-free-magic-keratin-2-12ml",
+                                                "full_title": "Экспресс-маска для волос Magic Keratin Fragrance Free 2*12мл",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "227409",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/227409/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/227409/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/227409/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": false,
+                                                "is_favorited": false,
+                                                "brand_title": "Kapous Professional",
+                                                "brand_href": "/brand/kapous-professional",
+                                                "default_category_title": "Восстановление волос"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="154166"><a class="carousel__img-box" href="/product/oksigent-dlya-okrashivaniya-volos-only-blond-ultra-oxigent-60ml"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/154167/s/1" /></a>
+                                        <h4><a href="/product/oksigent-dlya-okrashivaniya-volos-only-blond-ultra-oxigent-60ml">Оксигент для окрашивания волос Blond Ultra Oxigent 60мл</a></h4><span>ESTEL</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 148741,
+                                                "title": "Оксигент для окрашивания волос Blond Ultra Oxigent 60мл",
+                                                "price": 55.0,
+                                                "description": null,
+                                                "subtitle": "Оксигент 6%",
+                                                "price_original": 55.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "154167",
+                                                "is_evented": false,
+                                                "points": 1,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/oksigent-dlya-okrashivaniya-volos-only-blond-ultra-oxigent-60ml",
+                                                "full_title": "Оксигент для окрашивания волос Blond Ultra Oxigent 60мл: Оксигент 6%",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "154166",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/154167/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/154167/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/154167/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "ESTEL",
+                                                "brand_href": "/brand/estel",
+                                                "default_category_title": "Окислители для волос"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                                <div class="carousel__item">
+                                    <div class="js-product-quickview" data-product-sku="324753"><a class="carousel__img-box" href="/product/obestsvechivayuschaya-pudra-dlya-volos-blond-ultra-hair-bleaching-powder"><img alt="recent-purchase" src="//cdn2.randewoo.ru/img/324754/s/1" /></a>
+                                        <h4><a href="/product/obestsvechivayuschaya-pudra-dlya-volos-blond-ultra-hair-bleaching-powder">Обесцвечивающая пудра для волос Blond Ultra Hair Bleaching Powder</a></h4><span>ESTEL</span><small>г. Москва</small>
+                                    </div>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var product = {
+                                                "id": 315626,
+                                                "title": "Обесцвечивающая пудра для волос Blond Ultra Hair Bleaching Powder",
+                                                "price": 68.0,
+                                                "description": null,
+                                                "subtitle": "Пудра 30",
+                                                "price_original": 68.0,
+                                                "discount": 0.0,
+                                                "appearance": "list",
+                                                "sku": "324754",
+                                                "is_evented": false,
+                                                "points": 1,
+                                                "can_buy": true,
+                                                "is_discounted": false,
+                                                "href": "/product/obestsvechivayuschaya-pudra-dlya-volos-blond-ultra-hair-bleaching-powder",
+                                                "full_title": "Обесцвечивающая пудра для волос Blond Ultra Hair Bleaching Powder: Пудра 30",
+                                                "is_product_of_day": false,
+                                                "realproduct_sku": "324753",
+                                                "images": {
+                                                    "count": 1,
+                                                    "s": "//cdn2.randewoo.ru/img/324754/s/1",
+                                                    "n": "//cdn2.randewoo.ru/img/324754/n/1",
+                                                    "z": "//cdn2.randewoo.ru/img/324754/z/1",
+                                                    "stubs": {
+                                                        "s": "/assets/images/stubs/stub_mini.bf9317ad849de09557b7307d94b4f0a2.png",
+                                                        "n": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n3": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png",
+                                                        "n4": "/assets/images/stubs/stub.0d29ee1df0634d207c6342bd69b3d750.png"
+                                                    }
+                                                },
+                                                "has_connected_images": 0,
+                                                "is_favorited": false,
+                                                "brand_title": "ESTEL",
+                                                "brand_href": "/brand/estel",
+                                                "default_category_title": "Осветлители для волос"
+                                            };
+                                            analytics.common.miniatureShow(product);
+                                        })
+                                    </script>
+                                </div>
+                            </div><button class="carousel__btn carousel__btn--prev" data-role="carousel_prev_btn" type="button"></button><button class="carousel__btn carousel__btn--next" data-role="carousel_next_btn" type="button"></button>
+                        </div>
+                    </section>
+                    <section class="products-of-day-index">
+                        <div class="products-of-day-index__title">Товары дня</div>
+                        <div class="products-of-day-index__counter" data-remaining-time="2434.129478828" data-role="countdown"></div>
+                        <div class="products-of-day-index__info">Каждый день новые товары</div>
+                        <div class="products-of-day-index__button"><a href="/special/products">Смотреть всё</a></div>
+                    </section>
+                    <section class="shop-info">
+                        <h2 class="h1 line-title"><span>Интернет-магазин Randewoo.ru</span></h2>
+                        <figure class="shop-info__item"><img alt="выбор товаров" class="lazy" data-src="/assets/images/shop/info-image-1.fd34dd33b724ff3665e4340b63d4f076.png" />
+                            <figcaption>
+                                <h3>Большой выбор товаров на любой вкус</h3>
+                                <p>В интернет-магазине парфюмерии Randewoo.ru каждый может выбрать и купить парфюмерию, косметику
+                                    или аксессуар в 1 клик. В нашем каталоге более 5000 брендов
+                                    мужской, женской, детской косметики и парфюмерии, ароматов для дома и аксессуаров разных
+                                    ценовых категорий, всего более 180 000 товаров. Кроме того,
+                                    ассортимент постоянно пополняется!</p>
+                                <p>Мы выбираем надежных, проверенных поставщиков. Мы гарантируем подлинность товара,
+                                    что подтверждается сертификатами.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="shop-info__item"><img alt="Доставка" class="lazy" data-src="/assets/images/shop/info-image-2.b1913020e8e213f400748f03550930b3.png" />
+                            <figcaption>
+                                <h3>Доставка по всей России и странам СНГ</h3>
+                                <p>У нас есть собственная служба доставки, которая работает в Москве, МО и Санкт-Петербурге.
+                                    Срок доставки — 1-2 дня. Также вы можете оформить срочную доставку в течение 3 часов после
+                                    подтверждения заказа.</p>
+                                <p>Примерьте аромат перед покупкой! Интернет-магазин Randewoo даёт возможность примерить
+                                    аромат перед оплатой заказа курьеру, чтобы убедиться в его качестве.</p>
+                                <p>Бесплатная доставка по всей России!<sup>*</sup></p>
+                                <p><sup>*</sup> Мы предлагаем несколько способов доставки, среди которых всегда есть бесплатная. <a href="/info/delivery">Подробнее</a>.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="shop-info__item"><img alt="Оплата" class="lazy" data-src="/assets/images/shop/info-image-3.53357fc0fa3e45913aa7becc70a79050.png" />
+                            <figcaption>
+                                <h3>Оплата при получении заказа — никаких рисков</h3>
+                                <p>Боитесь оплачивать заказ заранее? И не надо, Randewoo. ru доставит ваш заказ в любую точку России,
+                                    где вы сможете оплатить его после того, как увидите. Мы отправляем заказы наложенным
+                                    платежом на любую сумму до 100 000 руб.</p>
+                                <p>Вы можете оплатить покупки не только наличными и банковскими картами, но и электронными деньгами,
+                                    а также через платежные терминалы и салоны связи.</p>
+                            </figcaption>
+                        </figure>
+                    </section>
+                </div>
+                <section class="reviews reviews__without-padding">
+                    <div class="wrap wrap__with-margin-bottom">
+                        <h2 class="h1 line-title"><span><a href="/reviews">Отзывы наших покупателей</a></span></h2>
+                        <blockquote class="reviews__item" itemprop="review" itemscope="true" itemtype="http://schema.org/Review">
+                            <div class="reviews__quote">
+                                <p><span itemprop="reviewBody">Добрый день! Сегодня получила посылочку с пробниками духов. Все аккуратно упаковано, посылка пришла очень быстро. Ароматы оригинальные. Спасибо огромное за подарок два пробника, мужская и женская парфюмерная вода! Думаю, что буду заказывать ещё!</span></p>
+                            </div>
+                            <footer><cite><span itemprop="author">Галина Лысикова</span>,&nbsp;</cite><time datetime="2019-11-26">
+                                    <meta content="2019-11-26T15:07:15.995+0300" itemprop="datePublished" />26 ноября</time></footer>
+                            <div itemprop="reviewRating" itemscope="true" itemtype="http://schema.org/Rating">
+                                <meta content="5" itemprop="ratingValue" />
+                            </div>
+                        </blockquote>
+                        <blockquote class="reviews__item" itemprop="review" itemscope="true" itemtype="http://schema.org/Review">
+                            <div class="reviews__quote">
+                                <p><span itemprop="reviewBody">Здравствуйте! Делаю заказ в Вашем магазине второй раз. Заказывала пробники, заказ пришел очень быстро, несмотря на выходные дни. Упаковано все очень хорошо. В подарок получила пробник духов и пробник крема. спасибо за прекрасное обслуживание!</span></p>
+                            </div>
+                            <footer><cite><span itemprop="author">Евгения</span>,&nbsp;</cite><time datetime="2019-11-21">
+                                    <meta content="2019-11-21T18:13:05.017+0300" itemprop="datePublished" />21 ноября</time></footer>
+                            <div itemprop="reviewRating" itemscope="true" itemtype="http://schema.org/Rating">
+                                <meta content="5" itemprop="ratingValue" />
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="wrap">
+                        <h2 class="h1 line-title" style="margin-top: 20px"><span><a href="https://www.youtube.com/channel/UCaFzpFK-tNMV2e2ywwmowlg" rel="nofollow noopener" target="_blank">Youtube</a></span></h2>
+                        <div class="b-youtube-videos" data-component="youtube-videos">
+                            <div class="b-youtube-videos__skeletons">
+                                <div class="b-youtube-videos__video">
+                                    <div class="s-skeleton s-skeleton--youtube">
+                                        <div class="s-skeleton__video"></div>
+                                        <div class="s-skeleton__info">
+                                            <div class="s-skeleton__line s-skeleton__line--dark"></div>
+                                            <div class="s-skeleton__line"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--short"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--medium"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--mini"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="b-youtube-videos__video">
+                                    <div class="s-skeleton s-skeleton--youtube">
+                                        <div class="s-skeleton__video"></div>
+                                        <div class="s-skeleton__info">
+                                            <div class="s-skeleton__line s-skeleton__line--dark"></div>
+                                            <div class="s-skeleton__line"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--short"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--medium"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--mini"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="b-youtube-videos__video">
+                                    <div class="s-skeleton s-skeleton--youtube">
+                                        <div class="s-skeleton__video"></div>
+                                        <div class="s-skeleton__info">
+                                            <div class="s-skeleton__line s-skeleton__line--dark"></div>
+                                            <div class="s-skeleton__line"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--short"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--medium"></div>
+                                            <div class="s-skeleton__line s-skeleton__line--mini"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><button class="logos-slider__btn logos-slider__btn--prev logos-slider__btn--video" data-role="carousel_prev_btn" type="button"></button><button class="logos-slider__btn logos-slider__btn--next logos-slider__btn--video" data-role="carousel_next_btn" type="button"></button>
+                        </div>
+                    </div>
+                </section>
+                <div class="wrap">
+                    <div class="wrap">
+                        <div class="miscellanea">
+                            <section class="miscellanea__col">
+                                <h3 class="miscellanea__title"><span>Отзывы о товарах</span></h3>
+                                <ul class="miscellanea__reviews">
+                                    <li class="miscellanea__review">
+                                        <div><a href="/product/dolce-gabbana-d-g-k"><img alt="Dolce Gabbana (D&amp;G) K" class="lazy" data-src="//cdn2.randewoo.ru/img/318415/s/1" /></a></div>
+                                        <div>
+                                            <h5><a href="/product/dolce-gabbana-d-g-k">Dolce Gabbana (D&amp;G) K</a></h5>
+                                            <p>&quot;Дольче и Габанна К&quot; отличный новый мужской аромат. Мне очень ...</p><a class="btn btn--info btn--small" href="/product/dolce-gabbana-d-g-k">Читать полностью</a>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__review">
+                                        <div><a href="/product/boadicea-the-victorious-delirious"><img alt="Boadicea The Victorious Delirious" class="lazy" data-src="//cdn2.randewoo.ru/img/32829/s/1" /></a></div>
+                                        <div>
+                                            <h5><a href="/product/boadicea-the-victorious-delirious">Boadicea The Victorious Delirious</a></h5>
+                                            <p>Очень пудровый. Я в нем задыхаюсь.</p><a class="btn btn--info btn--small" href="/product/boadicea-the-victorious-delirious">Читать полностью</a>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__review">
+                                        <div><a href="/product/mancera-cedrat-boise"><img alt="Mancera Cedrat Boise" class="lazy" data-src="//cdn2.randewoo.ru/img/55658/s/1" /></a></div>
+                                        <div>
+                                            <h5><a href="/product/mancera-cedrat-boise">Mancera Cedrat Boise</a></h5>
+                                            <p>Что касается стойкости, никакой разговор не уместен. Разве что ...</p><a class="btn btn--info btn--small" href="/product/mancera-cedrat-boise">Читать полностью</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="miscellanea__col">
+                                <h3 class="miscellanea__title"><span><a href="/news">Новости</a></span></h3>
+                                <ul class="miscellanea__articles">
+                                    <li class="miscellanea__article">
+                                        <div><a href="/news/novost-2750.html"><img alt="Chloe Nomade Absolu de Parfum — ветер свободы для очаровательных путешественниц" class="lazy" data-src="//cdn2.randewoo.ru/uploads/news/5385/mini_0.JPG" /></a></div>
+                                        <div><time datetime="2019-11-26">26 ноября</time>
+                                            <p><a href="/news/novost-2750.html">Chloe Nomade Absolu de Parfum — ветер свободы для очаровательных путешественниц</a></p>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__article">
+                                        <div><a href="/news/amazing-grace-bergamot-novoe-izdanie-ot-philosophy.html"><img alt="Amazing Grace Bergamot — новое издание от Philosophy" class="lazy" data-src="//cdn2.randewoo.ru/uploads/news/5384/mini_0.JPG" /></a></div>
+                                        <div><time datetime="2019-11-25">25 ноября</time>
+                                            <p><a href="/news/amazing-grace-bergamot-novoe-izdanie-ot-philosophy.html">Amazing Grace Bergamot — новое издание от Philosophy</a></p>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__article">
+                                        <div><a href="/news/ineke-jaipur-chai-komfort-vo-vremya-dozhdya.html"><img alt="Ineke Jaipur Chai — комфорт во время дождя" class="lazy" data-src="//cdn2.randewoo.ru/uploads/news/5383/mini_0.JPG" /></a></div>
+                                        <div><time datetime="2019-11-22">22 ноября</time>
+                                            <p><a href="/news/ineke-jaipur-chai-komfort-vo-vremya-dozhdya.html">Ineke Jaipur Chai — комфорт во время дождя</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="miscellanea__col">
+                                <h3 class="miscellanea__title"><span><a href="/statiy">Статьи</a></span></h3>
+                                <ul class="miscellanea__articles">
+                                    <li class="miscellanea__article">
+                                        <div><a href="/statiy/chem-i-kak-myt-detskie-butylochki.html"><img alt="Чем и как мыть детские бутылочки" class="lazy" data-src="//cdn2.randewoo.ru/uploads/articles/448/mini_1.jpg" /></a></div>
+                                        <div><time datetime="2019-11-18">18 ноября</time>
+                                            <p><a href="/statiy/chem-i-kak-myt-detskie-butylochki.html">Чем и как мыть детские бутылочки</a></p>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__article">
+                                        <div><a href="/statiy/tmin-v-parfyumerii.html"><img alt="Тмин в парфюмерии" class="lazy" data-src="//cdn2.randewoo.ru/uploads/articles/447/mini_0.JPG" /></a></div>
+                                        <div><time datetime="2019-11-06">6 ноября</time>
+                                            <p><a href="/statiy/tmin-v-parfyumerii.html">Тмин в парфюмерии</a></p>
+                                        </div>
+                                    </li>
+                                    <li class="miscellanea__article">
+                                        <div><a href="/statiy/aromaticheskie-svechi-chast-2.html"><img alt="Ароматические свечи (часть 2)" class="lazy" data-src="//cdn2.randewoo.ru/uploads/articles/446/mini_0.JPG" /></a></div>
+                                        <div><time datetime="2019-10-28">28 октября</time>
+                                            <p><a href="/statiy/aromaticheskie-svechi-chast-2.html">Ароматические свечи (часть 2)</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap no_padding">
+                    <noindex>
+                        <div class="subscription subscription--push-top">
+                            <form class="js-form-error_popup js-form-success js-subscribe_form" action="/discount_subscribes/old" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="subscribe[sex]" id="subscribe_sex" />
+                                <div><label class="subscription__text" for="subscription-email">Подпишитесь на наши новости!</label>
+                                    <div class="subscription__input-wrapper"><input placeholder="укажите вашу эл. почту" autocomplete="false" class="input subscription__input" type="email" name="subscribe[email]" id="subscribe_email" /></div>
+                                    <div class="subscription__buttons"><a class="btn btn--small btn--female subscription__btn" data-sex="female" href="#">Женщинам</a>&nbsp;<a class="btn btn--small subscription__btn" data-sex="male" href="#">Мужчинам</a></div>
+                                    <div class="clear"></div>
+                                </div>
+                            </form>
+                            <div class="js-form-success-block">
+                                <p>Вам необходимо подтвердить подписку. Проверьте, пожалуйста, почту</p>
+                            </div>
+                        </div>
+                    </noindex>
+                </div>
+                <noindex>
+                    <div class="dashboard">
+                        <div class="wrap"><button class="dashboard__toggle-btn" scroll-to="#app-header" type="button"><i class="dashboard__icon"></i></button>
+                            <ul class="dashboard__nav">
+                                <li><a href="/info/howto">Как сделать заказ</a></li>
+                                <li><a href="/info/delivery">Доставка</a></li>
+                                <li><a href="/info/payment">Оплата</a></li>
+                            </ul>
+                            <vue-dashboard-favorites></vue-dashboard-favorites>
+                            <vue-dashboard-cart></vue-dashboard-cart>
+                        </div>
+                    </div>
+                </noindex>
+            </main>
+        </div>
+        <footer class="footer">
+            <noindex>
+                <div class="footer__advantages wrap no_padding">
+                    <ul>
+                        <li><b>Наш магазин работает с 2008 года</b>
+                            <p>Уже 11 лет мы радуем своих покупателей, предоставляя отличный сервис</p>
+                        </li>
+                        <li><b>Доставлено более 500 000 заказов</b>
+                            <p>Сложно найти город в России, куда мы еще не отправили заказ</p>
+                        </li>
+                        <li><b>70% клиентов заказывают снова</b>
+                            <p>Система <a data-component="modal" data-type="longread" data-url="/info/discounts" href="/info/discounts">накопительных скидок</a> позволяет экономить постоянным покупателям</p>
+                        </li>
+                    </ul>
+                </div>
+            </noindex>
+            <div class="footer__inner">
+                <div class="wrap">
+                    <noindex>
+                        <div class="footer-nav">
+                            <ul class="footer-nav__list">
+                                <li>
+                                    <h4>СЕРВИС И ПОМОЩЬ</h4>
+                                </li>
+                                <li><a href="/info/howto">Как сделать заказ</a></li>
+                                <li><a href="/info/faq">Вопросы и ответы</a></li>
+                                <li><a href="/info/payment">Способы оплаты</a></li>
+                                <li><a href="/info/delivery">Способы доставки</a></li>
+                                <li><a href="/info/warranty">Возврат товара</a></li>
+                                <li><a href="/info/security">Конфиденциальность</a></li>
+                                <li><a href="/info/rules">Правила продажи</a></li>
+                                <li><a href="/info/public">Публичная оферта</a></li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li>
+                                    <h4>О КОМПАНИИ</h4>
+                                </li>
+                                <li><a href="/reviews">Отзывы клиентов</a></li>
+                                <li><a href="/info/team">Вакансии</a></li>
+                                <li><a href="/info/contacts">Контакты</a></li>
+                                <li><a href="/info/certificates">Наши преимущества</a></li>
+                                <li><a href="/info/partners">Партнерам</a></li>
+                                <li><a href="/info/certificates">Сертификаты</a></li>
+                                <li><a href="/info/discounts">Наши скидки</a></li>
+                                <li><a href="/info/bonus">Бонусная программа</a></li>
+                                <li><a href="/info/about">О компании</a></li>
+                            </ul>
+                            <ul class="footer-nav__list">
+                                <li>
+                                    <h4>ЛИЧНЫЙ КАБИНЕТ</h4>
+                                </li>
+                                <li><a rel="nofollow" href="/login">Войти</a></li>
+                                <li><a rel="nofollow" href="/cabinet">Мои заказы</a></li>
+                                <li><a rel="nofollow" href="/cabinet/settings">Личные данные</a></li>
+                                <li><a href="/cabinet/bonus_transactions">Бонусный счёт</a></li>
+                                <li><a rel="nofollow" href="/cabinet/product_subscriptions">Подписки</a></li>
+                                <li><a rel="nofollow" href="/cabinet/recent">Просмотренные</a></li>
+                                <li class="to-mobile">
+                                    <div class="left to-mobile__icon"><i></i></div>
+                                    <form class="button_to" method="post" action="/toggle_view?to=mobile"><button js-device-mode="m" class="to-mobile__link" type="submit">Перейти на мобильную версию сайта</button><input type="hidden" name="authenticity_token" value="N1WndxFqIH9an9/pVLtCuwm8/Bx6OscfP8S+Kzhf5l+5wLlaHSRomeT4TxkCR/x49ncqpih2lmAEFaUbIJ92xA==" /></form>
+                                </li>
+                            </ul>
+                        </div>
+                    </noindex>
+                    <div class="footer-contacts">
+                        <h4 class="footer-contacts__title">Контактная информация</h4>
+                        <p>Мы работаем<br />с 9:00 до 22:00 в будни<br />с 9:00 до 21:00 в выходные<br /><br />Оформить заказ на сайте<br />можно круглосуточно. <br /></p><strong class="footer-contacts__num"><span>+7 (495)</span>&nbsp;374-78-74</strong>
+                    </div>
+                </div>
+                <noindex>
+                    <div class="footer-line">
+                        <div class="wrap">
+                            <div class="footer-payment payment-icons"><span class="payment-icons__text">Принимаем к оплате:</span><a class="payment-icons__btn payment-icons__btn--visa-ver"></a><a class="payment-icons__btn payment-icons__btn--master-sec"></a><a class="payment-icons__btn payment-icons__btn--webmoney"></a><a class="payment-icons__btn payment-icons__btn--mir"></a></div>
+                            <div class="footer-socials socials"><span class="socials__text">&nbsp; Присоединяйтесь!</span><a class="socials__btn socials__btn--in" href="http://instagram.com/randewoo.ru" rel="nofollow noopener" target="_blank" title="Instagram"></a>&nbsp;<a class="socials__btn" href="https://vk.com/randewoo_ru" rel="nofollow noopener" target="_blank" title="ВКонтакте"></a>&nbsp;<a class="socials__btn socials__btn--fb" href="http://www.facebook.com/pages/Духи-Парфюмерия-Randewoo/1455452211344033?ref=tn_tnmn" rel="nofollow noopener" target="_blank" title="Facebook"></a>&nbsp;<a class="socials__btn socials__btn--od" href="https://ok.ru/randewoo" rel="nofollow noopener" target="_blank" title="Одноклассники"></a>&nbsp;<a class="socials__btn socials__btn--yt" href="https://www.youtube.com/channel/UCaFzpFK-tNMV2e2ywwmowlg/" rel="nofollow noopener" target="_blank" title="Youtube"></a></div>
+                        </div>
+                    </div>
+                </noindex>
+                <div class="wrap">
+                    <p class="footer-copyright footer-copyright--right">Интернет-магазин парфюмерии, косметики и аксессуаров №1. Только 100% подлинные товары!</p>
+                    <p class="footer-copyright"><b>&copy; Randewoo.ru, 2008–2019</b> </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="modals">
+        <script id="text-modal" type="text/template"><div class="modal {{= modal_class}}"><div class="modal__text-box"><h3 class="modal__title h2">{{= header}}</h3><p>{{= text}}</p></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="text-with-logo-modal" type="text/template"><div class="modal modal--responce modal--big"><div class="modal-responce"><div class="modal-responce__logo"></div><div class="modal-responce__separator"></div><div class="modal-responce__title">{{=title || ''}}</div><div class="modal-responce__subtitle" data-role="order_created_message">{{=text || 'Передайте текст'}}</div><div class="modal-responce__separator"></div><div class="modal-responce__btn btn btn--small btn--transparent" onclick="sm_popup.close()">Закрыть окно</div></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="cart-added-modal" type="text/template">{{ added_products.forEach(function(added_product) { }}
+            <div class="product-added"><a class="product-added__img-box" href="{{= added_product.href}}"><img src="{{= added_product.images.s}}" /></a>
+                <div class="product-added__title">{{= added_product.full_title}}</div>
+                <div class="product-added__price">{{ if (added_product.discount > 0) { }}<span class="pink">-{{= added_product.discount}}%</span> <s>{{= added_product.price_original}}</s>{{ } }}
+                    <div><b></b>{{= added_product.price}} руб.</div>
+                </div>
+            </div>{{ }); }}
+            <div class="modal__subtitle">В корзине <b>{{= count}} {{= count_pl }}</b> на сумму <b>{{= sum}} руб.</b></div>{{ if (cart_sum > 4500){ }}
+            <div class="modal__free-delivery">
+                <div class="modal__free-delivery__car"><img src="/assets/images/icons/free-delivery.177d248125e06a6749873335f384b38f.png" /></div>
+                <div class="modal__free-delivery__text">
+                    <p>Теперь вам доступна<br />бесплатная доставка</p>
+                </div>
+                <div class="modal__free-delivery__arrow"><img src="/assets/images/icons/free-delivery-arrow.1e792556fef3cc53084f64e72c2dfdcd.png" /></div>
+            </div>{{ } }}
+            <div class="push-half--top"> <a class="btn modal__btn btn--grey2 cp js-analytics-cart-continue">Продолжить покупки</a><a class="btn modal__btn js-analytics-cart-checkout btn--positive" href="https://randewoo.ru/checkout">Перейти к оформлению</a> </div>
+        </script>
+        <script id="js-wait-modal" type="text/template"><div class="modal modal--small"><div class="modal__text-box"><h3 class="modal__title h2">Пожалуйста, подождите</h3><div class="align-c spinner__container"><div class="flower_spinner is_showed"></div></div></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="js-assessment-success-modal" type="text/template"><p>Благодарим Вас за проявленное внимание и найденную возможность уделить нам время.<br />Компания Randewoo.ru будет рада сотрудничать с Вами в дальнейшем!</p><a class="btn" href="/" type="button">Продолжить покупки</a><button class="modal__close-btn" type="button"></button></script>
+        <script id="order-created-modal" type="text/template"><div class="modal modal--responce modal--big"><div class="modal-responce"><div class="modal-responce__logo"></div><div class="modal-responce__separator"></div><div class="modal-responce__title">Успешно!</div><div class="modal-responce__subtitle" data-role="order_created_message">Ваш заказ успешно оформлен! Сейчас вы будете переадресованы на страницу заказа</div><div class="modal-responce__separator"></div><div class="modal-responce__btn btn btn--small btn--transparent" onclick="sm_popup.close()">Закрыть окно</div></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="subscription-success-modal" type="text/template"><div class="modal modal--responce modal--big"><div class="subscription-responce"><div class="subscription-responce__logo"></div><div class="subscription-responce__separator"></div><div class="subscription-responce__title">Спасибо за подписку! На ваш e-mail отправлено письмо со ссылкой для подтверждения.</div><div class="subscription-responce__subtitle">Если письмо не пришло, поищите его в папке со спамом или повторите подписку</div><div class="subscription-responce__separator"></div><div class="subscription-responce__btn btn btn--small btn--transparent" onclick="sm_popup.close()">Закрыть окно</div></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="subscription-already-ordered-modal" type="text/template"><div class="modal modal--responce modal--big modal--discount"><div class="subscription-responce"><div class="subscription-responce__logo"></div><div class="subscription-responce__separator"></div><div class="subscription-responce__title">Здравствуйте!<br />В этой акции могут участвовать только новые покупатели. <br /><b>Постоянным клиентам </b>мы дарим накопительную скидку до 12%<br />На данный момент <b>ваша накопительная скидка равна <span data-role="user_discount"></span>%</b><br /><a href="/info/discounts">Как увеличить скидку, читайте здесь</a></div><div class="subscription-responce__separator"></div><div class="subscription-responce__btn btn btn--small btn--transparent" onclick="sm_popup.close()">Закрыть окно</div></div><button class="modal__close-btn" type="button"></button></div></script>
+        <script id="subscription-already-subscribed-modal" type="text/template"><div class="modal modal--responce modal--big"><div class="subscription-responce"><div class="subscription-responce__logo"></div><div class="subscription-responce__separator"></div><div class="subscription-responce__title">Спасибо за подписку! На ваш e-mail отправлено письмо с промо-кодом.</div><div class="subscription-responce__subtitle">Если письмо не пришло, поищите его в папке со спамом или повторите подписку.</div><div class="subscription-responce__separator"></div><div class="subscription-responce__btn btn btn--small btn--transparent" onclick="sm_popup.close()">Закрыть окно</div></div><button class="modal__close-btn" type="button"></button></div></script>
+    </div><noscript>
+        <div><img alt="" src="https://mc.yandex.ru/watch/10080304?ut=noindex" style="position:absolute; left:-9999px;" /><img alt="" src="https://mc.yandex.ru/watch/52966759?ut=noindex" style="position:absolute; left:-9999px;" /></div>
+    </noscript><noscript>
+        <div style="display:inline;"><img alt="" height="1" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1016770764/?value=0&amp;amp;guid=ON&amp;amp;script=0" style="border-style:none;" width="1" /></div>
+    </noscript>
+    <div class="mango-callback" data-settings="{&quot;type&quot;:&quot;&quot;, &quot;id&quot;: &quot;MTAwMDUxODE=&quot;,&quot;autoDial&quot; : &quot;0&quot;, &quot;lang&quot; : &quot;ru-ru&quot;, &quot;host&quot;:&quot;widgets.mango-office.ru/&quot;, &quot;errorMessage&quot;: &quot;В данный момент наблюдаются технические проблемы и совершение звонка невозможно&quot;}"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            setTimeout(function(t) {
+                function e() {
+                    i = document.querySelectorAll(".button-widget-open");
+                    for (var e = 0; e < i.length; e++) "true" != i[e].getAttribute("init") && (options = JSON.parse(i[e].closest('.' + t).getAttribute("data-settings")), i[e].setAttribute("onclick", "alert('" + options.errorMessage + "(0000)'); return false;"))
+                }
+
+                function o(t, e, o, n, i, r) {
+                    var s = document.createElement(t);
+                    for (var a in e) s.setAttribute(a, e[a]);
+                    s.readyState ? s.onreadystatechange = o : (s.onload = n, s.onerror = i), r(s)
+                }
+
+                function n() {
+                    for (var t = 0; t < i.length; t++) {
+                        var e = i[t];
+                        if ("true" != e.getAttribute("init")) {
+                            options = JSON.parse(e.getAttribute("data-settings"));
+                            var o = new MangoWidget({
+                                host: window.location.protocol + '//' + options.host,
+                                id: options.id,
+                                elem: e,
+                                message: options.errorMessage
+                            });
+                            o.initWidget(), e.setAttribute("init", "true"), i[t].setAttribute("onclick", "")
+                        }
+                    }
+                }
+
+                host = window.location.protocol + "//widgets.mango-office.ru/";
+                var i = document.getElementsByClassName(t);
+                o("link", {
+                    rel: "stylesheet",
+                    type: "text/css",
+                    href: host + "css/widget-button.css"
+                }, function() {}, function() {}, e, function(t) {
+                    document.documentElement.insertBefore(t, document.documentElement.firstChild)
+                }), o("script", {
+                    type: "text/javascript",
+                    src: host + "widgets/mango-callback.js"
+                }, function() {
+                    ("complete" == this.readyState || "loaded" == this.readyState) && n()
+                }, n, e, function(t) {
+                    document.documentElement.appendChild(t)
+                })
+            }, 8000, "mango-callback");
+        });
+    </script>
+    <div class="sub-nav-overlay" data-menu-item-id="4197"></div>
+    <div class="sub-nav-overlay" data-menu-item-id="4668"></div>
+    <div class="sub-nav-overlay" data-menu-item-id="5267"></div>
+    <div class="sub-nav-overlay" data-menu-item-id="4948"></div>
+    <div class="sub-nav-overlay" data-menu-item-id="5064"></div>
+    <div class="sub-nav-overlay" data-menu-item-id="6690"></div>
+    <script src="/assets/application.5d57abb37cc700c6.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TTJDCW');
+    </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-25261796-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', "UA-25261796-4", {
+            "custom_map": {
+                'dimension3': 'ecomm_prodid',
+                'dimension4': 'ecomm_pagetype',
+                'dimension5': 'ecomm_totalvalue',
+                'dimension6': 'ecomm_category'
+            }
+        });
+    </script>
+    <script>
+        window.dataLayer.push({
+            'pagetype': 'main',
+            'event': 'main'
+        });
+    </script>
+    <script>
+        ! function(e, n, t, a, o, c, r, s, i) {
+            e[o] || (r = e[o] = function() {
+                    r.track = arguments
+                },
+                c = n.createElement(t), c.src = a, c.async = !0, c.addEventListener('load', function() {
+                    r.track && e[o].apply(this, r.track)
+                }), s = n.getElementsByTagName(t)[0], s.parentNode.insertBefore(c, s))
+        }(window, document, 'script', '//www.googleadservices.com/pagead/conversion_async.js',
+            'google_trackConversion');
+    </script>
+    <script>
+        (function() {
+            var g = function(e, f) {
+                    var h = e.get("sendHitTask"),
+                        g = function() {
+                            function d(c) {
+                                var b = !1,
+                                    a;
+                                try {
+                                    window.XMLHttpRequest && "withCredentials" in (a = new XMLHttpRequest) && (a.open("POST", k(), !0), a.onprogress = function() {}, a.ontimeout = function() {}, a.onerror = function() {}, a.onload = function() {}, a.setRequestHeader("Content-Type", "text/plain"), a.send(c), b = !0)
+                                } catch (d) {}
+                                return b
+                            }
+
+                            function h(c) {
+                                var b = !1,
+                                    a;
+                                try {
+                                    window.XDomainRequest && (a = new XDomainRequest, a.open("POST", k(!1, location.protocol.slice(0, -1))), a.onprogress = function() {}, a.ontimeout = function() {}, a.onerror = function() {}, a.onload = function() {}, setTimeout(function() {
+                                        a.send(c)
+                                    }, 0), b = !0)
+                                } catch (d) {}
+                                return b
+                            }
+
+                            function g(c) {
+                                var b, a = !1;
+                                try {
+                                    b = document.createElement("img"), b.onload = function() {}, b.src = k(!0) + "?" + c, a = !0
+                                } catch (d) {}
+                                return a
+                            }
+
+                            function k(c, b) {
+                                var a;
+                                b || (b = "https");
+                                a = b + "://" + l.domain + "/collect";
+                                c || (a += "?tid=" + encodeURIComponent(e.get("trackingId")));
+                                return a
+                            }
+                            var l = {
+                                domain: f && f.domain ? f.domain : "google-analytics.bi.owox.com",
+                                debug: !1
+                            };
+                            return {
+                                send: function(c) {
+                                    var b;
+                                    if (!(b = 2036 >= c.length && g(c))) {
+                                        b = !1;
+                                        try {
+                                            b = navigator.sendBeacon && navigator.sendBeacon(k(), c)
+                                        } catch (a) {}
+                                    }
+                                    return b || d(c) || h(c) || g(c)
+                                }
+                            }
+                        }();
+                    e.set("sendHitTask", function(d) {
+                        var e;
+                        if (f && 0 < f.sessionIdDimension) try {
+                            e = d.get("clientId") + "_" + Date.now(), d.set("dimension" + f.sessionIdDimension, e), d.get("buildHitTask")(d)
+                        } catch (m) {}
+                        h(d);
+                        g.send(d.get("hitPayload"))
+                    })
+                },
+                h = window[window.GoogleAnalyticsObject || "ga"];
+            h && h("provide", "OWOXBIStreaming", g)
+        })();
+    </script>
+    <script type="text/javascript">
+        (window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-184177-gnsQ5';
+    </script>
+    <!-- НАЧАЛО ":body_script" -->
+    <!-- КОНЕЦ ":body_script" -->
+</body>
+
+</html>
