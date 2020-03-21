@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<!--    <link rel="stylesheet" media="all and (min-width: 1201px)" href="css/1_desktop.min.css">-->
+<!--
+    <link rel="stylesheet" media="all and (min-width: 901px) and (max-width: 1200px)" href="css/2_laptop.min.css">
+    <link rel="stylesheet" media="all and (min-width: 601px) and (max-width: 900px)" href="css/3_tablet.min.css"> 
+    <link rel="stylesheet" media="all and (max-width: 600px)" href="css/4_mobile.min.css">
+-->
+    <title>TUI отвечает: важная информация для туристов</title>
+    <style>
+    @media all and (min-width: 1201px) {
+        .page1 {
+            font-family: TUI-reg,TUI,sans-serif !important;
+            width: 100%;
+            padding-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__block {
+            max-width: 1153px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__title {
+            padding-bottom: 30px;
+            padding-top: 30px;
+            font-size: 40px !important;
+            color: #3b3b3b;
+        }
+        .page1__atten {
+            color: #e63c3d;
+        }
+        .page1__banner {
+            width: 100%;
+            background: url(https://www.tui.ru/getmedia/70153abd-2445-482e-8489-db476de7d1b6/img_desktop_1232x400);
+            background-size: cover;
+            min-height: 400px;
+            
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            border-radius: 10px!important;
+        }
+        .page1__text {
+            margin-bottom: 50px;
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .page1__paragraph {
+            padding: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            
+            color: #3b3b3b;
+        }
+        .page1__number {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            color: #e63c3d;
+            text-shadow: 7px 7px 0px hsla(0, 0%, 23%, 0.3); 
+            font-size: 70px;
+            font-weight: bold;
+        }
+        .page1__point {
+            font-family: TUI-reg,TUI,sans-serif !important;
+            font-size: 20px;
+            width: 90%;
+            color: #3b3b3b;
+        }
+        .page1__link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #e63c3d;
+            font-weight: bold;
+        }
+    };
+            
+    </style>
+    <style>
+      @media all and (min-width: 901px) and (max-width: 1200px) {
+        .page1 {
+            font-family: TUI-reg,TUI,sans-serif !important;
+            width: 100%;
+            padding-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__block {
+            max-width: 1153px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__title {
+            padding-bottom: 30px;
+            padding-top: 30px;
+            font-size: 40px !important;
+            color: #3b3b3b;
+            text-align: center;
+        }
+        .page1__atten {
+            color: #e63c3d;
+        }
+        .page1__banner {
+            width: 100%;
+            background: url(https://www.tui.ru/getmedia/70153abd-2445-482e-8489-db476de7d1b6/img_desktop_1232x400);
+            background-size: cover;
+            min-height: 400px;
+            
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            border-radius: 10px!important;
+        }
+        .page1__text {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .page1__paragraph {
+            padding: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            
+            color: #3b3b3b;
+        }
+        .page1__number {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            color: #e63c3d;
+            text-shadow: 7px 7px 0px hsla(0, 0%, 23%, 0.3); 
+            font-size: 70px;
+            font-weight: bold;
+        }
+        .page1__point {
+            width: 90%;
+            font-family: TUI-reg,TUI,sans-serif !important;
+            font-size: 20px;
+            color: #3b3b3b;
+        }
+        .page1__link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #e63c3d;
+            font-weight: bold;
+        }
+    };
+    </style>
+    
+    <style>
+      @media all and (min-width: 601px) and (max-width: 900px) {
+        .page1 {
+            font-family: TUI-reg,TUI,sans-serif !important;
+            width: 100%;
+            padding-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__block {
+            max-width: 1153px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__title {
+            padding-bottom: 30px;
+            padding-top: 30px;
+            font-size: 40px !important;
+            color: #3b3b3b;
+            text-align: center;
+        }
+        .page1__atten {
+            color: #e63c3d;
+        }
+        .page1__banner {
+            width: 100%;
+            min-height: 600px;
+            height: 100%;
+            background: url(https://www.tui.ru/getmedia/7ace7977-6c75-4010-9dd0-2eb75151d5c8/img_mobile_320x278);
+            background-size: cover;
+            
+            
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            border-radius: 10px!important;
+        }
+        .page1__text {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .page1__paragraph {
+            padding: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            
+            color: #3b3b3b;
+        }
+        .page1__number {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            color: #e63c3d;
+            text-shadow: 7px 7px 0px hsla(0, 0%, 23%, 0.3); 
+            font-size: 70px;
+            font-weight: bold;
+        }
+        .page1__point {
+            width: 90%;
+            font-family: TUI-reg,TUI,sans-serif !important;
+            font-size: 20px;
+            color: #3b3b3b;
+        }
+        .page1__link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #e63c3d;
+            font-weight: bold;
+        }
+    };
+    </style>
+    
+    <style>
+      @media all and (max-width: 600px) {
+        .page1 {
+            font-family: TUI-reg,TUI,sans-serif !important;
+            width: 100%;
+            padding-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__block {
+            max-width: 1153px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .page1__title {
+            padding-bottom: 30px;
+            padding-top: 30px;
+            font-size: 40px !important;
+            color: #3b3b3b;
+            text-align: center;
+        }
+        .page1__atten {
+            color: #e63c3d;
+        }
+        .page1__banner {
+            width: 100%;
+            min-height: 300px;
+            height: 100%;
+            background: url(https://www.tui.ru/getmedia/f003133d-8ae1-4454-b1f1-788323021bbd/img_273x150);
+            background-size: cover;
+            
+            
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 30px;
+            padding-bottom: 30px;
+            border-radius: 10px!important;
+        }
+        .page1__text {
+            margin-bottom: 30px;
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .page1__paragraph {
+            padding: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            
+            color: #3b3b3b;
+        }
+        .page1__number {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            color: #e63c3d;
+            text-shadow: 7px 7px 0px hsla(0, 0%, 23%, 0.3); 
+            font-size: 70px;
+            font-weight: bold;
+        }
+        .page1__point {
+            width: 80%;
+            font-family: TUI-reg,TUI,sans-serif !important;
+            font-size: 20px;
+            color: #3b3b3b;
+        }
+        .page1__link {
+            text-decoration: none;
+            cursor: pointer;
+            color: #e63c3d;
+            font-weight: bold;
+        }
+    };
+    </style>
+</head>
+
+<body>
+    <main class="page1" id="b2c-page">
+        <div class="page1__block">
+            <h1 class="page1__title">TUI отвечает: <span class="page1__atten">важная информация для туристов</span>!</h1>
+            <div class="page1__banner">
+
+            </div>
+            <div class="page1__text">
+                <p class="page1__paragraph">Многие из вас хотели устроить классные весенние каникулы за границей, но, к сожалению, сейчас все сложилось иначе. Мы переживаем за вас и хотим разобраться в каждом конкретном случае, ответить на вопросы и успокоить. Поэтому оставим здесь наш небольшой гайд по ситуации.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">1</span>
+                
+                <p class="page1__point">Рассказываем, что делать, если ваш тур отменили.<br><br>Увы, ситуация сложилась так, что Федеральное Агентство по туризму поставило на паузу (<a class="page1__link" href="https://www.russiatourism.ru/news/16610/" target="_blank">ссылка</a>) вылеты за рубеж до 30 апреля. Скверно, но верно – сейчас всем нужно уделить максимальное внимание своему здоровью.<br><br>Мы вам советуем:<br><br>- перебронировать тур на Россию – у нас много направлений (<a class="page1__link" href="https://www.tui.ru/search/?adults=2&dateFrom=1587290132214&directionCountryTo=210357&directionFrom=274286&maxCost=2000000&nightsFrom=7&nightsTo=14&sortType=1" target="_blank">Например</a>);<br>- перенести тур на более поздний срок. Вы можете перебронировать тур на любые даты до <span class="page1__atten">31 декабря 2020</span>. Средства, которые вы оплатили, перенесутся на следующее путешествие;<br>- оставить денежные средства на депозите и позже решить, куда поехать.<br><br>Вы сможете воспользоваться депозитом до <span class="page1__atten">31 декабря 2021 года</span>. Деньги можно потратить на <span class="page1__atten">любой тур</span>.<br><br>Вся самая актуальная информация по Вашей заявке у Вашего менеджера - там, где Вы оформляли тур.<br>Пожалуйста, свяжитесь с ним.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">2</span>
+                <p class="page1__point">Если вам нужна дополнительная информация, звоните <a class="page1__link" href="tel:+74957809918">8 (495) 780 99 18</a>.<br><br>Простите, если мы вдруг не ответили оперативно – мы очень стараемся, но обращений действительно много.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">3</span>
+                <p class="page1__point">Если у вас есть вопросы по тому, что происходит в разных странах, вы можете зайти на сайт Ростуризма (<a class="page1__link" href="http://russiatourism.ru" target="_blank">russiatourism.ru</a>).<br><br>Здесь есть официальная информация по сложившейся ситуации.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">4</span>
+                <p class="page1__point">Сейчас согласно данным Ростуризма только в четырех странах действует режим угрозы безопасности: <span class="page1__atten">Китай, Италия, Южная Корея и Иран.</span> <br><br>При аннуляции туров в эти страны возвращается 100% от стоимости.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">5</span>
+                <p class="page1__point">Если у вас был забронирован тур в другую страну и скоро вылет, обратитесь к своему менеджеру, он расскажет вам об опциях.<br><br>Но мы предлагаем не отказываться от отдыха и просто перенести его на более поздний срок или на другое направление.<br><br>Также вы можете оставить оплаченную сумму на будущий отдых на вашем депозите. В случае возврата, он будет происходить согласно условиям вашего договора и с учетом рекомендаций Ростуризма.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">6</span>
+                <p class="page1__point">Если до вылета еще очень далеко, например, у вас куплен тур на лето, не торопитесь. Ситуация может измениться в скором будущем.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">7</span>
+                <p class="page1__point">Почему мы взимаем ФПР (фактически понесенные расходы туроператора)?<br><br>Дело в том, что у нас есть финансовые обязательства перед нашими партнерами: авиакомпаниями, отелями и др. <br><br>Не все они готовы идти на полную отмену штрафов, предусмотренных договорными отношениями.<br>Но мы стараемся минимизировать эти суммы.</p>
+            </div>
+            <div class="page1__text">
+                <span class="page1__number">8</span>
+                <p class="page1__point">Если сейчас вы на отдыхе, и у вас возникают вопросы, обращайтесь в нашу круглосуточную службу поддержки туристов за рубежом. Вы можете связаться с нами по номеру <a class="page1__link" href="tel:+78007757750">8 800 775 77 50</a>.</p>
+            </div>
+<!--
+            <div class="page1__text">
+                <span class="page1__number">9</span>
+                <p class="page1__point">Если вы столкнулись с непредвиденной ситуацией, у вас есть вопросы об аннуляции тура, переносе дат, размере ФПР (фактически понесенных расходов туроператора), обратитесь в первую очередь к менеджеру турагентства – человеку, который помогал вам при бронировании тура и оформлял договор.<br><br>Именно он сможет помочь вам наиболее оперативно. Настолько, насколько это возможно в данной ситуации.<br><br>Если он не отвечает сразу – очень просим немного подождать. Мы ни про кого не забываем и рассматриваем каждую заявку индивидуально. Сначала решаются вопросы по ближайшим вылетам.</p>
+            </div>
+-->
+            <div class="page1__text">
+                <p class="page1__paragraph">Давайте в этот нелегкий момент поддержим друг друга, объединимся и разберемся с проблемами как старые друзья.<br><br>Мы знаем точно – <span class="page1__atten">скоро все будет хорошо</span>, а ваш отпуск в будущем обязательно состоится!</p>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
